@@ -45,3 +45,16 @@ $(document).ready(function () {
 });
 
 /// LOPPU ///
+
+// Tarkan haun Sanahaku-oletustermit korvataan Nimeke, Tekijä, Asiasana sivulla /cgi-bin/koha/catalogue/search.pl
+$(document).ready(function() {
+    let params = (new URL(document.location)).searchParams;
+    let edit = params.get("edit_search");
+    if (window.location.pathname == '/cgi-bin/koha/catalogue/search.pl' && !edit) {
+      var elems = $("body#catalog_advsearch select[name='idx']");
+      elems.eq(0).val('ti');
+      elems.eq(1).val('au');
+      elems.eq(2).val('su');
+    }
+  });
+  //LOPPU
