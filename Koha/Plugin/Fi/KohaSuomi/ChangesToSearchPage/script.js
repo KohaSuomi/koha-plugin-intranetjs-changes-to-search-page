@@ -38,14 +38,6 @@ $(document).ready(function () {
 });
 /// LOPPU ///
 
-$(document).ready(function () {
-    if (window.location.href.indexOf("catalogue/search.pl?advsearch=1&edit_search=1") > -1) {
-        $("#searchterms select option[value='location']").val('loc'); /* Muuttaa location-arvon loc-arvoksi "Hakusanat"-valikossa, kun hakua mennään muokkaamaan*/
-    }
-});
-
-/// LOPPU ///
-
 // Tarkan haun Sanahaku-oletustermit korvataan Nimeke, Tekijä, Asiasana sivulla /cgi-bin/koha/catalogue/search.pl
 $(document).ready(function() {
     let params = (new URL(document.location)).searchParams;
