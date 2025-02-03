@@ -11,11 +11,11 @@ $(document).ready(function () {
             $("a#advsearch-tab-bib-level-tab").text("Emokohde/Osakohde"); /* bib-level auktorisoituarvo tarkassa haussa */
             $("#searchterms .advsearch").append(new Option('YKL-luokitus', 'other-classification')); /* Lisää uuden valinnan YKL-luokitus */
             $("#searchterms .advsearch").append(new Option('UDK-luokitus', 'udc-classification')); /* Lisää uuden valinnan UDK-luokitus */
-            $("#searchterms .advsearch").append(new Option('Tuontantomaa/luontipaikka', 'place-of-origin'));
+            $("#searchterms .advsearch").append(new Option('Tuottajan maa/luomispaikka', 'place-of-origin'));
             $("#searchterms .advsearch").append(new Option('Esityskokoonpano', 'performance-medium'));
             $("#searchterms .advsearch").append(new Option('Kohderyhmä', 'audience-term'));
-            $("#searchterms .advsearch").append(new Option('Tekijän ominaisuudet', 'creator-term'));
-            $("#searchterms .advsearch").append(new Option('Luontiaika', 'time-period')); 
+            $("#searchterms .advsearch").append(new Option('Tekijä', 'creator-term'));
+            $("#searchterms .advsearch").append(new Option('Luomisaika', 'time-period')); 
             $("#subtype select option[value='mus:i'").parent().append(new Option('Päivittyvä julkaisu', 'bib-level:i')); /*Lisää lisärajoitukset valikkoon uuden arvon */
             $("#subtype select option[value='mus:i'").parent().append(new Option('Kausijulkaisu', 'bib-level:s')); /*Lisää lisärajoitukset valikkoon uuden arvon */
         }
