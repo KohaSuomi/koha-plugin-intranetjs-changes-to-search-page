@@ -14,7 +14,7 @@ $(document).ready(function () {
             $("#searchterms .advsearch").append(new Option('Tuottajan maa/luomispaikka', 'place-of-origin'));
             $("#searchterms .advsearch").append(new Option('Esityskokoonpano', 'performance-medium'));
             $("#searchterms .advsearch").append(new Option('Kohderyhmä', 'audience-term'));
-            $("#searchterms .advsearch").append(new Option('Tekijä', 'creator-term'));
+            $('.advsearch option[value="pn,phr"]').after($('<option value="creator-term">&nbsp;&nbsp;&nbsp;&nbsp; Tekijän ominaisuudet</option>'));
             $("#searchterms .advsearch").append(new Option('Luomisaika', 'time-period')); 
             $("#subtype select option[value='mus:i'").parent().append(new Option('Päivittyvä julkaisu', 'bib-level:i')); /*Lisää lisärajoitukset valikkoon uuden arvon */
             $("#subtype select option[value='mus:i'").parent().append(new Option('Kausijulkaisu', 'bib-level:s')); /*Lisää lisärajoitukset valikkoon uuden arvon */
@@ -29,7 +29,7 @@ $(document).ready(function () {
             $("#searchterms .advsearch").append(new Option('Land för produktionsenhet/-bolag', 'place-of-origin'));
             $("#searchterms .advsearch").append(new Option('Uppsättning', 'performance-medium'));
             $("#searchterms .advsearch").append(new Option('Målgrupp', 'audience-term'));
-            $("#searchterms .advsearch").append(new Option('Upphovs-/medverkandekategori', 'creator-term'));
+            $('.advsearch option[value="pn,phr"]').after($('<option value="creator-term">&nbsp;&nbsp;&nbsp;&nbsp; Upphovs-/medverkandekategori</option>'));
             $("#searchterms .advsearch").append(new Option('Tidsperiod', 'time-period'));
             $("#subtype select option[value='mus:i'").parent().append(new Option('Publikation som uppdateras', 'bib-level:i'));
             $("#subtype select option[value='mus:i'").parent().append(new Option('Seriell publikation', 'bib-level:s'));
@@ -44,7 +44,7 @@ $(document).ready(function () {
             $("#searchterms .advsearch").append(new Option('Country of producing entity/Place of origin', 'place-of-origin'));
             $("#searchterms .advsearch").append(new Option('Medium of performance', 'performance-medium'));
             $("#searchterms .advsearch").append(new Option('Audience', 'audience-term'));
-            $("#searchterms .advsearch").append(new Option('Creator/contributor', 'creator-term'));
+            $('.advsearch option[value="pn,phr"]').after($('<option value="creator-term">&nbsp;&nbsp;&nbsp;&nbsp; Creator/contributor</option>'));
             $("#searchterms .advsearch").append(new Option('Time period of creation', 'time-period'));           
             $("#subtype select option[value='mus:i'").parent().append(new Option('Integrating resource', 'bib-level:i'));
             $("#subtype select option[value='mus:i'").parent().append(new Option('Serial', 'bib-level:s'));
