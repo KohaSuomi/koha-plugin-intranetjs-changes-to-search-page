@@ -22,7 +22,7 @@ our $metadata = {
     minimum_version => '23.11',
     maximum_version => '',
     version         => $VERSION,
-    description     => "Muutokset tiedonhakuun (otsikot eri kielillä aineistotyyppi-, hyllytarkenne- ja ikärajavälilehdille tiedonhaussa. Lisätään alasvetovalikoihin YKL, UDK, Päivittyvä julkaisu ja Kausijulkaisu)",
+    description     => "Muutokset tiedonhakuun. Otsikot eri kielillä aineistotyyppi-, hyllytarkenne- ja ikärajavälilehdille tiedonhaussa. Lisätään alasvetovalikoihin YKL, UDK, Päivittyvä julkaisu ja Kausijulkaisu. (Paikalliskannat, Täti)",
 };
 
 ## This is the minimum code required for a plugin's 'new' method
