@@ -9,6 +9,7 @@ use base qw(Koha::Plugins::Base);
 use C4::Context;
 use utf8;
 use File::Slurp;
+use C4::Languages;
 
 ## Here we set our plugin version
 our $VERSION = "1.0.0";
@@ -25,6 +26,25 @@ our $metadata = {
     description     => "Muutokset tiedonhakuun. Otsikot eri kielillä aineistotyyppi-, hyllytarkenne- ja ikärajavälilehdille tiedonhaussa. Lisätään alasvetovalikoihin YKL, UDK, Päivittyvä julkaisu ja Kausijulkaisu. (Paikalliskannat, Täti)",
 };
 
+sub get_localized_metadata {
+    my ($self) = @_;
+    my $lang = C4::Languages::getlanguage() || 'en';
+    my ($name, $description);
+
+    if ($lang eq 'sv-SE') {
+        $name = "IntranetUserJS: Ändringar på söksidan";
+        $description = "Ändringar i sökningen. Rubriker på olika språk för flikarna materialtyp, hyllsignum och åldersgräns i sökningen. Lägger till YKL, UDK, Uppdateras kontinuerligt och Periodika i rullgardinsmenyerna. (Lokala databaser, Täti)";
+    
+    } elsif ($lang eq 'fi-FI' ) {
+        $name = "IntranetUserJS: Muutokset hakusivulla";
+        $description = "Muutokset tiedonhakuun. Otsikot eri kielillä aineistotyyppi-, hyllytarkenne- ja ikärajavälilehdille tiedonhaussa. Lisätään alasvetovalikoihin YKL, UDK, Päivittyvä julkaisu ja Kausijulkaisu. (Paikalliskannat, Täti)";
+    } else {
+        $name = "IntranetUserJS: Changes to search page";
+        $description = "Changes to the search page. Titles in different languages for the material type, call number and age limit tabs in the search. Adding YKL, UDK, Updating publication and Periodical to the dropdown menus. (Local databases, Täti)";
+    }
+    return ($name, $description);
+}
+
 ## This is the minimum code required for a plugin's 'new' method
 ## More can be added, but none should be removed
 sub new {
@@ -38,6 +58,10 @@ sub new {
     ## This runs some additional magic and checking
     ## and returns our actual
     my $self = $class->SUPER::new($args);
+
+    my ($name, $description) = $self->get_localized_metadata();
+    $self->{'metadata'}->{'name'} = $name;
+    $self->{'metadata'}->{'description'} = $description;
 
     return $self;
 }
