@@ -24,8 +24,8 @@ $(document).ready(function () {
             $("a#advsearch-tab-subloc-tab").text("Underplats");
             $("a#advsearch-tab-agelevel-tab").text("Åldersgränser");
             $("a#advsearch-tab-bib-level-tab").text("Huvudobjekt/Delobjekt");
-            $("#searchterms .advsearch").append(new Option('YKL-klassification', 'other-classification'));
-            $("#searchterms .advsearch").append(new Option('UDC-klassification', 'udc-classification'));
+            $("#searchterms .advsearch").append(new Option('YKL-klassifikation', 'other-classification'));
+            $("#searchterms .advsearch").append(new Option('UDK-klassifikation', 'udc-classification'));
             $("#searchterms .advsearch").append(new Option('Land för produktionsenhet/-bolag', 'place-of-origin'));
             $("#searchterms .advsearch").append(new Option('Uppsättning', 'performance-medium'));
             $("#searchterms .advsearch").append(new Option('Målgrupp', 'audience-term'));
