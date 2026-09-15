@@ -16,14 +16,12 @@ our $VERSION = "1.0.0";
 
 ## Here is our metadata, some keys are required, some are optional
 our $metadata = {
-    name            => "IntranetUserJS: Changes to search page",
     author          => 'Lari Strand',
     date_authored   => '2024-08-19',
     date_updated    => '2024-08-19',
     minimum_version => '23.11',
     maximum_version => '',
     version         => $VERSION,
-    description     => "Muutokset tiedonhakuun. Otsikot eri kielillä aineistotyyppi-, hyllytarkenne- ja ikärajavälilehdille tiedonhaussa. Lisätään alasvetovalikoihin YKL, UDK, Päivittyvä julkaisu ja Kausijulkaisu. (Paikalliskannat, Täti)",
 };
 
 sub get_localized_metadata {
@@ -32,15 +30,14 @@ sub get_localized_metadata {
     my ($name, $description);
 
     if ($lang eq 'sv-SE') {
-        $name = "IntranetUserJS: Ändringar på söksidan";
-        $description = "Ändringar i sökningen. Rubriker på olika språk för flikarna materialtyp, hyllsignum och åldersgräns i sökningen. Lägger till YKL, UDK, Uppdateras kontinuerligt och Periodika i rullgardinsmenyerna. (Lokala databaser, Täti)";
-    
+        $name = "IntranetUserJS: Ändringar på sökningssidan";
+        $description = "Ändringar i sökningen. Rubriker på olika språk för flikarna materialtyp, underplats och åldersgräns i sökningen. Lägger till YKL, UDK, Publikation som uppdateras och Seriell publikation i rullgardinsmenyerna. (Lokala databaser, Täti)";
     } elsif ($lang eq 'fi-FI' ) {
-        $name = "IntranetUserJS: Muutokset hakusivulla";
-        $description = "Muutokset tiedonhakuun. Otsikot eri kielillä aineistotyyppi-, hyllytarkenne- ja ikärajavälilehdille tiedonhaussa. Lisätään alasvetovalikoihin YKL, UDK, Päivittyvä julkaisu ja Kausijulkaisu. (Paikalliskannat, Täti)";
+        $name = "IntranetUserJS: Muutokset tiedonhaku-sivulle";
+        $description = "Muutokset tiedonhaku-sivulle. Otsikot eri kielillä aineistotyyppi-, hyllytarkenne- ja ikärajavälilehdille tiedonhaussa. Lisätään alasvetovalikoihin YKL, UDK, Päivittyvä julkaisu ja Kausijulkaisu. Asetetaan Hakusanat-osion alasvetovalikoiden oletusvalinnoiksi Nimeke, Tekijä, Asiasana (Paikalliskannat, Täti)";
     } else {
         $name = "IntranetUserJS: Changes to search page";
-        $description = "Changes to the search page. Titles in different languages for the material type, call number and age limit tabs in the search. Adding YKL, UDK, Updating publication and Periodical to the dropdown menus. (Local databases, Täti)";
+        $description = "Changes to the search page. Titles in different languages for the material type, sub location and age limit tabs in the search. Adding YKL, UDC, Integrating resource and Serial to the dropdown menus. Sets defaults for Search for section’s dropdown menus as Title, Author and Subject (Local databases, Täti)";
     }
     return ($name, $description);
 }
@@ -109,36 +106,6 @@ sub admin {
 
     $self->output_html( $template->output() );
 }
-
-## If your tool is complicated enough to needs it's own setting/configuration
-## you will want to add a 'configure' method to your plugin like so.
-## Here I am throwing all the logic into the 'configure' method, but it could
-## be split up like the 'report' method is.
-# sub configure {
-#     my ( $self, $args ) = @_;
-#     my $cgi = $self->{'cgi'};
-
-#     unless ( $cgi->param('save') ) {
-#         my $template = $self->get_template({ file => 'configure.tt' });
-
-#         ## Grab the values we already have for our settings, if any exist
-#         $template->param(
-#             config_param_a => $self->retrieve_data('config_param_a'),
-#             last_upgraded   => $self->retrieve_data('last_upgraded'),
-#         );
-
-#         $self->output_html( $template->output() );
-#     }
-#     else {
-#         $self->store_data(
-#             {
-#                 config_param_a => $cgi->param('config_param_a'),
-#                 last_configured_by => C4::Context->userenv->{'number'},
-#             }
-#         );
-#         $self->go_home();
-#     }
-# }
 
 ## This is the 'install' method. Any database tables or other setup that should
 ## be done when the plugin if first installed should be executed in this method.
